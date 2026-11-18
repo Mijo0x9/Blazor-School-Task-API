@@ -1,0 +1,18 @@
+@page "/boek/{id}"
+@rendermode InteractiveServer
+
+<PageTitle>Boekdetails</PageTitle>
+
+<h1>Boekdetails</h1>
+
+<section>
+    <h2>Boekinformatie</h2>
+    <p>
+        Hier komt de gedetailleerde informatie over het boek met id <code>@Id</code>.
+    </p>
+</section>
+
+@code {
+    [Parameter]
+    public string? Id { get; set; }
+}

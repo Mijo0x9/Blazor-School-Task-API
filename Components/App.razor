@@ -13,8 +13,37 @@
 </head>
 
 <body>
-    <Routes />
+    @inject IWebHostEnvironment Env
+
+<Routes />
     <script src="_framework/blazor.web.js"></script>
+
+    @if (Env.IsDevelopment())
+    {
+        <script>
+            // Dev-only live reload: reconnect to the SSE endpoint.
+            // When the server restarts (dotnet watch on code change),
+            // the connection drops and we reload the page.
+            (function () {
+                function connect() {
+                    const es = new EventSource('/dev-reload');
+                    es.onerror = function () {
+                        es.close();
+                        // Server went away (restarting) -> reload once it's back.
+                        setTimeout(function () {
+                            fetch('/dev-reload', { method: 'GET' })
+                                .then(function (r) {
+                                    if (r.ok) { location.reload(); }
+                                    else { connect(); }
+                                })
+                                .catch(function () { connect(); });
+                        }, 500);
+                    };
+                }
+                connect();
+            })();
+        </script>
+    }
 </body>
 
 </html>

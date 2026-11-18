@@ -6,6 +6,12 @@
 # dotenv files
 .env
 
+# Local quick-copy templates (not pushed)
+quick-copy/
+
+# Local assignment context (not pushed)
+context.md
+
 # User-specific files
 *.rsuser
 *.suo

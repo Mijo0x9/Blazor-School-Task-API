@@ -3,13 +3,12 @@
     display: flex;
     flex-direction: column;
 }
-
 main {
     flex: 1;
 }
 
 .sidebar {
-    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+    background-image: linear-gradient(103deg, #45004b 30%, #3b0101 70%);
 }
 
 .top-row {

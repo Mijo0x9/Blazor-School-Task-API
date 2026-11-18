@@ -6,4 +6,12 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <!-- Exclude quick-copy templates from the build so they don't cause errors -->
+  <ItemGroup>
+    <Compile Remove="quick-copy/**" />
+    <Content Remove="quick-copy/**" />
+    <None Remove="quick-copy/**" />
+    <EmbeddedResource Remove="quick-copy/**" />
+  </ItemGroup>
+
 </Project>
